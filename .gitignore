@@ -1,3 +1,2 @@
 .env
-api_key.txt
-api.txt
+token_key.py

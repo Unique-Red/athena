@@ -1,4 +1,4 @@
-api_key = "api.txt"
+import token_key as t
 from telegram.ext import *
 import responses as r
 
@@ -38,7 +38,7 @@ def error(update, context):
 
 
 def main():
-    updater = Updater(api_key, use_context=True)
+    updater = Updater(t.api_key, use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start_command))
