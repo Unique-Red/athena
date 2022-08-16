@@ -1,4 +1,4 @@
-api_key = "1905240420:AAEfKU7Pwf-VAAWoOLo4Q1JPl_EoQ-Agc-E"
+api_key = "api.txt"
 from telegram.ext import *
 import responses as r
 
@@ -8,7 +8,6 @@ def start_command(update, context):
     update.message.reply_text("Hmm, Welcome!\nI was birthed out of an idea.\nAs the name implies 'Athena'. I am the greek goddess of knowledge, burdened with unending answers as regards Applied Psychology.\nHere to assist you with everything you may need to aid smooth learning.\n My creators the persons of Reddington & Chace built me to be your versatile friendly robot in 4 days!\n I can help you keep track of time and keep you up to date academically since that's what i was built for.\n \nSo, shall we begin?\nType your course code without space and without a slash'/'!")
 def athena_command(update, context):
     update.message.reply_text("Hi, I'm Athena!\n Your versatile friendly robot.\nHere to assist you with everything you may need to aid smooth learning.\n \nSo, shall we begin?\nType your course code without space and with a (/)slash !")
-
 
 def help_command(update, context):
     update.message.reply_text("If you need help! You should ask for it on Google!")
