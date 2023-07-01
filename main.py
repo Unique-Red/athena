@@ -44,55 +44,37 @@ def handle_response(text: str) -> str:
     if 'how are you' in processed:
         return "I'm doing great! How about you?"
     
+    if "011.01":
+        return "\n \nFor Lucid and concrete explanation on this, Athena recommends this link: "
+    
     return "Sorry, I don't understand what you're trying to say. Could you please rephrase that?"
+
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message_type: str = update.message.chat.type
     text: str = update.message.text
     
-    print (f"User ({message_type}) {update.message.chat.username} said: {text}")
+    print (f"User ({message_type}) {update.message.chat.username} with the user id {update.message.chat.id} said: {text}")
 
     if message_type == "group":
         if BOT_USERNAME in text:
             new_text: str = text.replace(BOT_USERNAME, "").strip()
             response: str = handle_response(new_text)
         else:
-            response: str = handle_response(text)
+            return
+        
+    else:
+        response: str = handle_response(text)
 
-        print (f"Bot responded with: {response}")
-
-        await update.message.reply_text(response)
+    print (f"Bot responded with: {response}")
+    await update.message.reply_text(response)
 
         
 
 async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f"Update {update} caused error {context.error}")
 
-
-# async def main():
-#     updater = Application.builder().token(TOKEN).build()
-#     dp = updater.dispatcher
-
-#     dp.add_handler(CommandHandler("start", start_command))
-#     dp.add_handler(CommandHandler("athena", athena_command))
-#     dp.add_handler(CommandHandler("help", help_command))
-#     dp.add_handler(CommandHandler("edf121", edf121_command))
-#     dp.add_handler(CommandHandler("edf122", edf122_command))
-#     dp.add_handler(CommandHandler("edf123", edf123_command))
-#     dp.add_handler(CommandHandler("crs120", crs120_command))
-#     dp.add_handler(CommandHandler("crs124", crs124_command))
-#     dp.add_handler(CommandHandler("crs146", crs146_command))
-
-
-#     dp.add_handler(MessageHandler(Filters.text, handle_message))
-
-#     dp.add_error_handler(error)
-
-#     updater.start_polling()
-#     updater.idle()
-
-# main()
 
 if __name__ == "__main__":
     print("Bot started...")
