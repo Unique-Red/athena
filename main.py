@@ -4,7 +4,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, CallbackCo
 import responses as r
 import os
 
-TOKEN: Final = "1905240420:AAEfKU7Pwf-VAAWoOLo4Q1JPl_EoQ-Agc-E"
+TOKEN: Final = os.getenv("TOKEN") # Enter your bot token here
 BOT_USERNAME = "@athena"
 
 
